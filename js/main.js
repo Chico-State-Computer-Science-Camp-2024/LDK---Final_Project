@@ -1,5 +1,6 @@
-var X = 200;
-var Y = 200;
+
+let Y = 200;
+let X = 200;
 
 function setup() { 
   createCanvas(400, 400);
@@ -21,18 +22,3 @@ function draw() {
     }
   }
 }
-
-
-
-
-
-/*if (keyCode == RIGHT_ARROW) {
-    X +=5; 
-   }  else if (keyCode == LEFT_ARROW) {
-     X -= 5;
-   } else if (keyCode == UP_ARROW) {
-     Y -= 5; 
-   } else if (keyCode == DOWN_ARROW) {
-     Y +=5; 
-   }
-  } */
