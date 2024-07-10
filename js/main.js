@@ -7,7 +7,7 @@ function setup() {
 } 
 
 function draw() { 
-  background(0);
+  background('lime');
   square(X, Y, 20);
   
   if (keyIsPressed) {
@@ -21,4 +21,8 @@ function draw() {
       Y += 5;
     }
   }
+}
+
+function snakecolor() {
+  
 }
