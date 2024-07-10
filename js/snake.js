@@ -20,7 +20,7 @@ function draw() {
   square(X, Y, 20);
   
   X += 3;
-  Y += 2;
+  /*Y += 2;*/
 
   if (keyIsPressed) {
     if(key === "a"){
