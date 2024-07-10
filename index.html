@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
-        <script src="./js/main.js"></script>
-        <title>Snake</title>
-    </head>
-    <body>
-        <h1>Snake</h1>
-        <main style="margin-left: 10px;">
-        <canvas id="defaultCanvas0" class="p5Canvas" width="1000" height="600" style="width: 300px; height: 300px;"></canvas>
-    </main>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Snake Game</title>
+</head>
+
+    <!-- Start Menu -->
+
+    <!-- Color Selector -->
+<div class="startMenu">
+
+    <div class="ColorSelector">
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Select Snake Color</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#home"><button><font color="#ffffff">White</font></button></a>
+            <a href="#home"><button><font color="#ffff00">Yellow</font></button></a>
+            <a href="#home"><button><font color="#33cc33">Green</font></button></a>
+            <a href="#home"><button><font color="#0099ff">Blue</font></button></a>
+            <a href="#home"><button><font color="#6600cc">Purple</font></button></a>
+            <a href="#home"><button><font color="#fb3ff">Pink</font></button></a>
+            <a href="#home"><button><font color="#ff6600">Orange</font></button></a>
+            <a href="#home"><button><font color="#ff4000">Red</font></button></a>
+            <a href="#home"><button><font color="#663300">Brown</font></button></a>
+            <a href="#home"><button><font color="#000000">Black</font></button></a>
+          </div>
+        </div>
+        
+        <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+
+    </div>
+
+    <div class="startButton">
+        <button type="button">Play</button>
+    </div>
+</div>
+
+
 </html>
