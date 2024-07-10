@@ -83,6 +83,8 @@ function Fruit() {
   point(fruit.x, fruit.y); 
 }
 
+
+
 /*
 function frute() {
   fill(56, 12,9)

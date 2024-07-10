@@ -1,4 +1,4 @@
-
+/*
 let Y = 200;
 let X = 200;
 
@@ -26,3 +26,4 @@ function draw() {
 function snakecolor() {
   
 }
+*/
