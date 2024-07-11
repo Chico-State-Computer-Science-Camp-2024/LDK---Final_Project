@@ -1,6 +1,6 @@
 
 html {
-    background-image: url("https://c2.staticflickr.com/4/3095/5701536808_f402c4a1fd_b.jpg");
+    background-image: url("https://media.istockphoto.com/photos/green-grass-background-with-checked-pattern-picture-id508095425?k=6&m=508095425&s=170667a&w=0&h=ZQqDNlPihi8q6R0YF0APszBqlJUPBAruSghyEsdSE1g=");
     background-size: cover; /* or specify the size you want */
     background-repeat: no-repeat;
 }
@@ -12,6 +12,7 @@ html {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    
   }
   
   .dropbtn:hover, .dropbtn:focus {
@@ -47,13 +48,19 @@ html {
 
 
   .startMenu {
-    position: absolute;
-    top: 43%;
-    left: 38%;
-    text-align: center;
+
     border: 3px solid green;
     background-color: rgb(162, 167, 185);
     height: 300px;
     width: 500px;
+<<<<<<< HEAD
   }
   */
+=======
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+  }
+>>>>>>> main
