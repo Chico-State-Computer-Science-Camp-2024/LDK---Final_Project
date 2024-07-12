@@ -36,11 +36,10 @@ resetButton.addEventListener("click", resetGame);
 
 // Preload image
 bgImage.src = "https://wallpaperbat.com/img/361132-free-download-beautiful-jungle-hd-wallpaper-hd-wallpaper.jpg";
-bgImage.onload = () => {
+bgImage.onload = function() {
   // Image is loaded, start the game
   gameStart();
 };
-
 function gameStart() {
   running = true;
   scoreText.textContent = score;
