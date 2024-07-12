@@ -314,13 +314,15 @@
 
 const gameBoard = document.querySelector("#gameBoard");
 const context = gameBoard.getContext("2d");
+
 // Select the score text and reset button elements
 const scoreText = document.querySelector("#scoreText");
 const resetButton = document.querySelector("#resetButton");
+
 // Set the game board dimensions
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const boardBackground = "white"; // This will be replaced by the image
+
 const snakeColor = "lightgreen";
 const snakeBorder = "black";
 const foodColor = "red";
@@ -339,6 +341,9 @@ let snake = [
   { x: 0, y: 0 },
 ];
 
+// Store the ID of the setTimeout
+let gameLoopTimeout;
+
 // Event Listeners
 window.addEventListener("keydown", changeDirection);
 resetButton.addEventListener("click", resetGame);
@@ -346,8 +351,8 @@ resetButton.addEventListener("click", resetGame);
 // Preload image
 bgImage.src = "https://wallpaperbat.com/img/361132-free-download-beautiful-jungle-hd-wallpaper-hd-wallpaper.jpg";
 bgImage.onload = () => {
-    // Image is loaded, start the game
-    gameStart();
+  // Image is loaded, start the game
+  gameStart();
 };
 
 function gameStart() {
@@ -355,12 +360,16 @@ function gameStart() {
   scoreText.textContent = score;
   createFood();
   nextTick();
-
 }
 
 function nextTick() {
   if (running) {
-    setTimeout(function() {
+    // Clear previous timeout if it exists
+    if (gameLoopTimeout) {
+      clearTimeout(gameLoopTimeout);
+    }
+
+    gameLoopTimeout = setTimeout(function() {
       clearBoard();
       drawFood();
       moveSnake();
@@ -373,10 +382,9 @@ function nextTick() {
   }
 }
 
-
 function clearBoard() {
   // Draw background image
-  ctx.drawImage(bgImage, 0, 0, gameWidth, gameHeight);
+  context.drawImage(bgImage, 0, 0, gameWidth, gameHeight);
 }
 
 function createFood() {
@@ -415,7 +423,6 @@ function drawSnake() {
   });
 }
 
-
 function changeDirection(event) {
   const keyPressed = event.keyCode;
   const LEFT = 65;
@@ -449,22 +456,16 @@ function changeDirection(event) {
 }
 
 function checkGameOver() {
-  //snake collisins 
+  // Snake collisions
   switch (true) {
     case (snake[0].x < 0):
-      running = false;
-      break;
     case (snake[0].x >= gameWidth):
-      running = false;
-      break;
     case (snake[0].y < 0):
-      running = false;
-      break;
     case (snake[0].y >= gameHeight):
       running = false;
       break;
   }
-  //self crash
+  // Self crash
   for (let i = 1; i < snake.length; i += 1) {
     if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
       running = false;
@@ -476,11 +477,16 @@ function displayGameOver() {
   context.font = "50px italic";
   context.fillStyle = "black";
   context.textAlign = "center";
-  context.fillText("Game Over!", gameWidth / 2, gameHeight / 2); // display
+  context.fillText("Game Over!", gameWidth / 2, gameHeight / 2); // Display
   running = false;
 }
 
 function resetGame() {
+  // Clear the current game loop
+  if (gameLoopTimeout) {
+    clearTimeout(gameLoopTimeout);
+  }
+
   score = 0;
   xVelocity = unitSize;
   yVelocity = 0;
