@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // const gameBoard = document.querySelector("#gameBoard");
 // const ctx = gameBoard.getContext("2d");
 // const scoreText = document.querySelector("#scoreText");
@@ -313,9 +312,6 @@
 
 
 
-=======
-// Select the game board canvas element and get its 2D rendering context
->>>>>>> 427f927c36d396ed35e36dcb97f86bba5f7cfa02
 const gameBoard = document.querySelector("#gameBoard");
 const context = gameBoard.getContext("2d");
 // Select the score text and reset button elements
@@ -324,28 +320,18 @@ const resetButton = document.querySelector("#resetButton");
 // Set the game board dimensions
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-<<<<<<< HEAD
 const boardBackground = "white"; // This will be replaced by the image
-=======
-// Define game colors and unit size
-const boardBackground = "white";
->>>>>>> 427f927c36d396ed35e36dcb97f86bba5f7cfa02
 const snakeColor = "lightgreen";
 const snakeBorder = "black";
 const foodColor = "red";
 const unitSize = 24;
-<<<<<<< HEAD
 let bgImage = new Image(); // Image object for background
-=======
-// Initialize game state variables
->>>>>>> 427f927c36d396ed35e36dcb97f86bba5f7cfa02
 let running = false;
 let xVelocity = unitSize; // Snake's horizontal velocity
 let yVelocity = 0; // Snake's vertical velocity
 let foodX;
 let foodY;
 let score = 0;
-<<<<<<< HEAD
 let snake = [
   { x: unitSize * 4, y: 0 },
   { x: unitSize * 3, y: 0 },
@@ -354,11 +340,6 @@ let snake = [
 ];
 
 // Event Listeners
-=======
-// start position of the snake
-let snake = [ { x: unitSize * 4, y: 0 }, { x: unitSize * 3, y: 0 }, { x: unitSize * 2, y: 0 }, { x: 0, y: 0 } ];
-// event listeners for keyboard input and reset button click
->>>>>>> 427f927c36d396ed35e36dcb97f86bba5f7cfa02
 window.addEventListener("keydown", changeDirection);
 resetButton.addEventListener("click", resetGame);
 
@@ -394,13 +375,8 @@ function nextTick() {
 
 
 function clearBoard() {
-<<<<<<< HEAD
   // Draw background image
   ctx.drawImage(bgImage, 0, 0, gameWidth, gameHeight);
-=======
-  context.fillStyle = boardBackground; //color
-  context.fillRect(0, 0, gameWidth, gameHeight); // clear
->>>>>>> 427f927c36d396ed35e36dcb97f86bba5f7cfa02
 }
 
 function createFood() {
@@ -516,15 +492,3 @@ function resetGame() {
   ];
   gameStart();
 }
-<<<<<<< HEAD
-=======
-
-/*function mousePressed() {
-
-}
-*/
-
-
-
-
->>>>>>> 427f927c36d396ed35e36dcb97f86bba5f7cfa02
