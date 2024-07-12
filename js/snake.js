@@ -28,6 +28,9 @@ resetButton.addEventListener("click", resetGame);
 
 gameStart();
 
+
+
+
 function gameStart() {
   running = true;
   scoreText.textContent = score;
@@ -176,6 +179,7 @@ function resetGame() {
 
 }
 */
+
 
 
 
