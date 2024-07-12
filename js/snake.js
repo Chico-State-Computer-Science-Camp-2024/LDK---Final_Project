@@ -1,27 +1,28 @@
+// Select the game board canvas element and get its 2D rendering context
 const gameBoard = document.querySelector("#gameBoard");
-const ctx = gameBoard.getContext("2d");
+const context = gameBoard.getContext("2d");
+// Select the score text and reset button elements
 const scoreText = document.querySelector("#scoreText");
 const resetButton = document.querySelector("#resetButton");
+// Set the game board dimensions
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
+// Define game colors and unit size
 const boardBackground = "white";
 const snakeColor = "lightgreen";
 const snakeBorder = "black";
 const foodColor = "red";
 const unitSize = 24;
+// Initialize game state variables
 let running = false;
-let xVelocity = unitSize;
-let yVelocity = 0;
+let xVelocity = unitSize; // Snake's horizontal velocity
+let yVelocity = 0; // Snake's vertical velocity
 let foodX;
 let foodY;
 let score = 0;
-let snake = [
-  { x: unitSize * 4, y: 0 },
-  { x: unitSize * 3, y: 0 },
-  { x: unitSize * 2, y: 0 },
-  { x: 0, y: 0 },
-];
-
+// start position of the snake
+let snake = [ { x: unitSize * 4, y: 0 }, { x: unitSize * 3, y: 0 }, { x: unitSize * 2, y: 0 }, { x: 0, y: 0 } ];
+// event listeners for keyboard input and reset button click
 window.addEventListener("keydown", changeDirection);
 resetButton.addEventListener("click", resetGame);
 
@@ -33,11 +34,12 @@ function gameStart() {
   createFood();
   drawFood();
   nextTick();
+
 }
 
 function nextTick() {
   if (running) {
-    setTimeout(() => {
+    setTimeout(function() {
       clearBoard();
       drawFood();
       moveSnake();
@@ -50,9 +52,10 @@ function nextTick() {
   }
 }
 
+
 function clearBoard() {
-  ctx.fillStyle = boardBackground;
-  ctx.fillRect(0, 0, gameWidth, gameHeight);
+  context.fillStyle = boardBackground; //color
+  context.fillRect(0, 0, gameWidth, gameHeight); // clear
 }
 
 function createFood() {
@@ -65,8 +68,8 @@ function createFood() {
 }
 
 function drawFood() {
-  ctx.fillStyle = foodColor;
-  ctx.fillRect(foodX, foodY, unitSize, unitSize);
+  context.fillStyle = foodColor;
+  context.fillRect(foodX, foodY, unitSize, unitSize);
 }
 
 function moveSnake() {
@@ -83,20 +86,21 @@ function moveSnake() {
 }
 
 function drawSnake() {
-  ctx.fillStyle = snakeColor;
-  ctx.strokeStyle = snakeBorder;
-  snake.forEach(snakePart => {
-    ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
-    ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
+  context.fillStyle = snakeColor;
+  context.strokeStyle = snakeBorder;
+  snake.forEach(function(snakePart) { // each part of the snake 
+    context.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
+    context.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
   });
 }
 
+
 function changeDirection(event) {
   const keyPressed = event.keyCode;
-  const LEFT = 37;
-  const RIGHT = 39;
-  const UP = 38;
-  const DOWN = 40;
+  const LEFT = 65;
+  const RIGHT = 68;
+  const UP = 87;
+  const DOWN = 83;
 
   const goingUp = (yVelocity === -unitSize);
   const goingDown = (yVelocity === unitSize);
@@ -124,6 +128,7 @@ function changeDirection(event) {
 }
 
 function checkGameOver() {
+  //snake collisins 
   switch (true) {
     case (snake[0].x < 0):
       running = false;
@@ -138,6 +143,7 @@ function checkGameOver() {
       running = false;
       break;
   }
+  //self crash
   for (let i = 1; i < snake.length; i += 1) {
     if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
       running = false;
@@ -146,10 +152,10 @@ function checkGameOver() {
 }
 
 function displayGameOver() {
-  ctx.font = "50px MV Boli";
-  ctx.fillStyle = "black";
-  ctx.textAlign = "center";
-  ctx.fillText("Game Over!", gameWidth / 2, gameHeight / 2);
+  context.font = "50px italic";
+  context.fillStyle = "black";
+  context.textAlign = "center";
+  context.fillText("Game Over!", gameWidth / 2, gameHeight / 2); // display
   running = false;
 }
 
@@ -166,9 +172,10 @@ function resetGame() {
   gameStart();
 }
 
+/*function mousePressed() {
 
-
-
+}
+*/
 
 
 
