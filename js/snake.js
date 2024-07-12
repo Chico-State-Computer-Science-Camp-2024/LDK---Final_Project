@@ -45,10 +45,10 @@ function gameStart() {
   running = true;
   scoreText.textContent = score;
   createFood();
-  nextTick();
+  nextLoading();
 }
 
-function nextTick() {
+function nextLoading() {
   if (running) {
     // Clear previous timeout if it exists
     if (gameLoopTimeout) {
@@ -61,7 +61,7 @@ function nextTick() {
       moveSnake();
       drawSnake();
       checkGameOver();
-      nextTick();
+      nextLoading();
     }, 100);
   } else {
     displayGameOver();
