@@ -5,11 +5,11 @@
     border: 3px solid;
 }
 #scoreTx{
-    font-family: "Permanant Marker", cursive;
+    font-family: "monospace", cursive;
     font-size: 100px
 }
 #resetButton{
-    font-family: "Permanant Marker", cursive;
+    font-family: "monospace", cursive;
     font-size: 22px;
     width: 100px;
     height: 50px;
